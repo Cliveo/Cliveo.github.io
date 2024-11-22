@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Power Platform Plugin Package – Managed identity"
-subtitle: "This is the post subtitle."
-date: 2024-11-22 14:48:01 +1300
-background: '/img/bg-index.jpg'
+date:   2024-11-22 14:48:01 +1300
+categories: Azure
 ---
 
 I’m going to cover the steps I’ve taken to get power platform plugin packages working with managed identity. Hopefully this helps someone accelerate their success without needing to face the same challenges I struggled with.
