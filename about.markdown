@@ -4,15 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# About the author – Who is Clive?
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Hello! I’m a technical solution architect with 10+ years experience in software development.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+My expertise is in Microsoft Power Platform and Azure, which I believe are an amazing foundation to rapidly develop high quality enterprise scale business applications.
 
-
-[jekyll-organization]: https://github.com/jekyll
+{:refdef: style="text-align: center;"}
+![here](/assets/author.jpg)
+{: refdef}
