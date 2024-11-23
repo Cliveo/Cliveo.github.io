@@ -68,5 +68,5 @@ Just as before, once you’ve registered your package you need to associate it t
 
 ![here](/assets/plugin-package/8.png)
 
-Conclusion:
+# Conclusion:
 Once you’ve done this you should have everything you need to get the best out of the microsoft provided azure libraries, securely connected to azure from Dataverse within a plugin package!
