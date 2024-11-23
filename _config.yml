@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Clive Oldridge - Solution Architect
+title: Blog
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   A simple site with content about Power Platform & Azure based software development.
@@ -26,12 +26,13 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 linkedin_username: cliveoldridge
 github_username:  CliveO
-
+google_analytics: GTM-57MXV7K4
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
-  
+  - jekyll-seo-tag
+
 minima:
   social_links:
    - { platform: github,         user_url: "https://github.com/cliveo" }

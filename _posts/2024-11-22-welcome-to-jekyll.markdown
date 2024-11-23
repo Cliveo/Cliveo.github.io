@@ -10,12 +10,14 @@ I’m going to cover the steps I’ve taken to get power platform plugin package
 This is an extension of my previous blog, so look there if you want the details of how to create the certificate locally in the way that I use it in my post pack event.
 
 
-You can find example code that I’ve provided on github here.
+You can find example code that I’ve provided on [github here](https://github.com/Cliveo/ManagedIdentityPlugin){:target="_blank"}
+.
 
-My main motivation was I wanted the ability to use some of the azure libraries that provide clients to communicate with azure resources. My example currently works with the BlobServiceClient.
+My main motivation was I wanted the ability to use some of the azure libraries that provide clients to communicate with azure resources. My example currently works with the `BlobServiceClient`.
 
 # Step 1: Signing the package
-My event requires a certificate called ManagedIdentityPlugin to be in the users personal certificates. (Check my previous blog if you need help doing this)
+
+My event requires a certificate called `ManagedIdentityPlugin` to be in the users personal certificates. (Check my previous blog if you need help doing this)`
 
 First I found I had to download that certificate & install it in Trusted Root Certificate Authority (this is for nuget sign to work below)
 
@@ -43,9 +45,9 @@ The other main thing to take note of is I’ve placed it in the after pack event
 This is because the nuget package needs to be packed before I can sign it, purely using post build event was not sufficient.
 
 # Step 2: Token to TokenCredential
-Another hurdle was the azure client libraries expect one of these classes that provide a GetToken method, but the Microsoft IManagedIdentityService interface has AcquireToken which is a string not an AccessToken object.
+Another hurdle was the azure client libraries expect one of these classes that provide a GetToken method, but the Microsoft `IManagedIdentityService` interface has `AcquireToken` which is a string not an `AccessToken` object.
 
-I created a class that seems to work (if there is a better way please someone tell me!) It simply takes the token you get from IManagedIdentityService, extends TokenCredential abstract class so you can pass it to BlobServiceClient constructor.
+I created a class that seems to work (if there is a better way please someone tell me!) It simply takes the token you get from `IManagedIdentityService`, extends `TokenCredential` abstract class so you can pass it to `BlobServiceClient` constructor.
 
 ![here](/assets/plugin-package/5.png)
 
@@ -57,7 +59,7 @@ I had lots of issues adding Azure.Storage.Blobs to my package. The main one was 
 
 `'Method not found: ‘System.BinaryData System.ClientModel.Primitives.IPersistableModel``
 
-Eventually I found adding the package System.ClientModel directly seemed to resolve the issue.
+Eventually I found adding the package `System.ClientModel` directly seemed to resolve the issue.
 
 My installed packages look like this:
 
