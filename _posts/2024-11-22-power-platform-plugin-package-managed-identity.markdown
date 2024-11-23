@@ -57,7 +57,7 @@ I created a class that seems to work (if there is a better way please someone te
 # Step 3: Getting the package to register
 I had lots of issues adding Azure.Storage.Blobs to my package. The main one was I kept getting errors like:
 
-`'Method not found: ‘System.BinaryData System.ClientModel.Primitives.IPersistableModel``
+`'Method not found: ‘System.BinaryData System.ClientModel.Primitives.IPersistableModel'`
 
 Eventually I found adding the package `System.ClientModel` directly seemed to resolve the issue.
 
