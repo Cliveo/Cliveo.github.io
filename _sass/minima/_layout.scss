@@ -196,14 +196,22 @@
 /**
  * Page content
  */
+ .home {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+ }
 .page-content {
   padding: $spacing-unit 0;
   flex: 1 0 auto;
+  @media screen and (min-width: $on-large) {
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/assets/bg-index.jpg");
+    background-repeat: no-repeat;
+  }
 }
 
 .page-heading {
   @include relative-font-size(2);
-  background-color: blanchedalmond;
   text-align: center;
   padding: 20px;
 }

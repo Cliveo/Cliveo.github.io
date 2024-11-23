@@ -11,5 +11,5 @@ Hello! I’m a technical solution architect with 10+ years experience in softwar
 My expertise is in Microsoft Power Platform and Azure, which I believe are an amazing foundation to rapidly develop high quality enterprise scale business applications.
 
 {:refdef: style="text-align: center;"}
-![here](/assets/author.jpg)
+![here](/assets/author.jpg){: style="border-radius: 20px;"}
 {: refdef}
