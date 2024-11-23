@@ -229,7 +229,9 @@ pre {
 }
 
 main .wrapper {
-  border: .5px solid;
+  @media screen and (min-width: $on-large) {
+    border: 1px solid;
+  }
 }
 
 /**

@@ -18,4 +18,4 @@ Microsoft documentation can be found [here](https://learn.microsoft.com/en-us/co
 My code can be found here at [github](https://github.com/Cliveo/CustomConnector-RemoveSpecialCharacters/tree/main/CustomConnectorTests){:target="_blank"}
 
 Watch the video for a demo of how to set it up:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hpeT0FGKIOo?si=sN3iypm_bfFQRdan" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/hpeT0FGKIOo?si=sN3iypm_bfFQRdan" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
