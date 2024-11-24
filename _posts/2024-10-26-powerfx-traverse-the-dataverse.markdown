@@ -44,10 +44,10 @@ Here is the output:
 # Step 3: Create an email template
 Just as before, the out of the box functionality to insert dynamic content now finds the column on contact. Add it where appropriate.
 
-![here](/assets/traverse-the-dataverse/email-template.png)
+![here](/assets/traverse-the-dataverse/emailtemplate.png)
 
 Generate the email:
-![here](/assets/traverse-the-dataverse/email-template-output.png)
+![here](/assets/traverse-the-dataverse/emailtemplate-output.png)
 
 
 # Conclusion
