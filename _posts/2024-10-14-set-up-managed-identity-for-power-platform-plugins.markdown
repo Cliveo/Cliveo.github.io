@@ -23,20 +23,20 @@ I followed the following Microsoft documentation but hopefully this blog will he
 # Step 1: Create a certificate
 You will need a certificate to sign your assembly, as well as the `thumbprint` for the certificate in the federation settings of your managed identity. I used the following PowerShell:
 
-``` PowerShell
- $ku_codeSigning = "1.3.6.1.5.5.7.3.3";
+```pwsh
+$ku_codeSigning = "1.3.6.1.5.5.7.3.3";
 
-  $codeSignCert = New-SelfSignedCertificate `
-    -Type "CodeSigningCert" `
-    -KeyExportPolicy "Exportable" `
-    -Subject "ManagedIdentityPlugin" `
-    -KeyUsageProperty @("Sign") `
-    -KeyUsage @("DigitalSignature") `
-    -TextExtension @("2.5.29.37={text}$($ku_codeSigning)", "2.5.29.19={text}false") `
-    -CertStoreLocation cert:\CurrentUser\My `
-    -KeyLength 2048 `
-    -NotAfter ([DateTime]::Now.AddDays(90)) `
-    -Provider "Microsoft Software Key Storage Provider";
+$codeSignCert = New-SelfSignedCertificate `
+  -Type "CodeSigningCert" `
+  -KeyExportPolicy "Exportable" `
+  -Subject "ManagedIdentityPlugin" `
+  -KeyUsageProperty @("Sign") `
+  -KeyUsage @("DigitalSignature") `
+  -TextExtension @("2.5.29.37={text}$($ku_codeSigning)", "2.5.29.19={text}false") `
+  -CertStoreLocation cert:\CurrentUser\My `
+  -KeyLength 2048 `
+  -NotAfter ([DateTime]::Now.AddDays(90)) `
+  -Provider "Microsoft Software Key Storage Provider";
 ```
 After running this you should have a certificate in current user called `ManagedIdentityPlugin`. 
 
@@ -95,14 +95,14 @@ Which can be found here
 
 Within the execute add the following to get a token to your storage account:
 
-``` c#
+```c#
 var identityService = (IManagedIdentityService)localPluginContext.ServiceProvider.GetService(typeof(IManagedIdentityService));
 var scopes = new List<string> { "https://storage.azure.com/.default" };
 var token = identityService.AcquireToken(scopes);      
 ```
 
 Now we can try use that token to query the blob API:
-``` c#
+```c#
 var blobUrl = "https://<your storage account>.blob.core.windows.net/plugin?restype=container&comp=list";
 
 using (HttpClient client = new HttpClient())
@@ -158,7 +158,7 @@ Ensure that `Credentialsource` is set to `2` in the payload and `SubjectScope` i
 `applicationid`: Client ID that we copied from the managed identity we created in azure
 `Managedidentityid`: I just used the same Guid as the application ID.
 
-``` json
+```json
 { 
   "applicationid":"<appId>",
   "managedidentityid":"<anyGuid>",
