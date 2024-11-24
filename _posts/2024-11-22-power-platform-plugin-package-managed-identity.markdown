@@ -7,11 +7,10 @@ categories: Azure
 
 I’m going to cover the steps I’ve taken to get power platform plugin packages working with managed identity. Hopefully this helps someone accelerate their success without needing to face the same challenges I struggled with.
 
-This is an extension of my previous blog, so look there if you want the details of how to create the certificate locally in the way that I use it in my post pack event.
+This is an extension of my [previous blog](/azure/2024/10/14/set-up-managed-identity-for-power-platform-plugins.html), so look there if you want the details of how to create the certificate locally in the way that I use it in my post pack event.
 
 
 You can find example code that I’ve provided on [github here](https://github.com/Cliveo/ManagedIdentityPlugin){:target="_blank"}
-.
 
 My main motivation was I wanted the ability to use some of the azure libraries that provide clients to communicate with azure resources. My example currently works with the `BlobServiceClient`.
 
@@ -39,23 +38,30 @@ In my example code you will find that I’ve added a post pack event
 
 The main differences with this are instead of using `signtool` (I found it wouldn’t sign the nupkg only the dll). I’m using `dotnet nuget sign`.
 
-`dotnet nuget sign $(ProjectDir)bin\$(ConfigurationName)\ManagedIdentityPlugin.1.0.0.nupkg --certificate-subject-name ManagedIdentityPlugin'`
+`dotnet nuget sign $(ProjectDir)bin\$(ConfigurationName)\ManagedIdentityPlugin.1.0.0.nupkg --certificate-subject-name ManagedIdentityPlugin --overwrite --timestamper http://timestamp.digicert.com`
 
 The other main thing to take note of is I’ve placed it in the after pack event `AfterTargets="Pack"`
 This is because the nuget package needs to be packed before I can sign it, purely using post build event was not sufficient.
 
 # Step 2: Token to TokenCredential
-Another hurdle was the azure client libraries expect one of these classes that provide a GetToken method, but the Microsoft `IManagedIdentityService` interface has `AcquireToken` which is a string not an `AccessToken` object.
+Another hurdle was the azure client libraries expect one of these classes that provide a `GetToken` method, but the Microsoft `IManagedIdentityService` interface has `AcquireToken` which `returns` a `string` not an `AccessToken` object.
 
-I created a class that seems to work (if there is a better way please someone tell me!) It simply takes the token you get from `IManagedIdentityService`, extends `TokenCredential` abstract class so you can pass it to `BlobServiceClient` constructor.
+I created a class that seems to work (**if there is a better way please someone tell me!**) 
+
+It simply takes the `token` you get from `IManagedIdentityService`, extends `TokenCredential` abstract class so you can pass it to `BlobServiceClient` constructor.
 
 ![here](/assets/plugin-package/5.png)
 
 ![here](/assets/plugin-package/6.png)
 
+# Step 3: Building the package
+Building the plugin package is as easy as `dotnet build`
 
-# Step 3: Getting the package to register
-I had lots of issues adding Azure.Storage.Blobs to my package. The main one was I kept getting errors like:
+![here](/assets/plugin-package/build.png)
+
+
+# Step 4: Getting the package to register
+I had lots of issues adding `Azure.Storage.Blobs` to my package. The main one was I kept getting errors like:
 
 `'Method not found: ‘System.BinaryData System.ClientModel.Primitives.IPersistableModel'`
 
@@ -65,8 +71,10 @@ My installed packages look like this:
 
 ![here](/assets/plugin-package/7.png)
 
-# Step 4: Associate the managed identity to the plugin package
-Just as before, once you’ve registered your package you need to associate it to the managed identity in Dataverse. Here is an example request:
+I registered the package with the `Plugin Registration Tool`.
+
+# Step 5: Associate the managed identity to the plugin package
+Just as before, once you’ve registered your `package` you need to associate it to the `managed identity` in Dataverse, the main difference here is you are **not** associating it to the `plugin`. Here is an example request:
 
 ![here](/assets/plugin-package/8.png)
 

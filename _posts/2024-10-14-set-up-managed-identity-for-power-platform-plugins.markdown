@@ -7,6 +7,9 @@ categories: Azure
 
 In the following blog, I’m going to guide you on the set up of managed identity for Power Platform. Once we have finished you should have everything you need to be able to create a plugin that can communicate with an azure resource.
 
+# Code and blog about plugin package setup
+Since the original release of this blog I've written a follow up that provides source code and details on plugin packages, Please find it at my [next blog](/azure/2024/11/22/power-platform-plugin-package-managed-identity.html).
+
 # Why do we want to use managed identity?
 
 Managed identity allows your plugin to access azure resources, without the need of storing credentials. This is by far the most secure way to extend the reach of your Power Platform plugin into the Azure space.
@@ -117,6 +120,8 @@ localPluginContext.TracingService.Trace(json);
 ```
 
 # Step 5: Build and sign the plugin
+For details about signing plugin packages check the [next blog](/azure/2024/11/22/power-platform-plugin-package-managed-identity.html).
+
 Build the plugin as you usually would, then you need to sign the plugin using the certificate that we created before. You can either use the following command in the visual studio command prompt in the directory where your dll is located:
 
 `signtool sign /n ManagedIdentityPlugin /fd SHA256 ManagedIdentityPlugin.dll`
@@ -148,18 +153,18 @@ https://<orgURL>/api/data/v9.0/managedidentities
 ```
 
 Be sure to replace orgURL with the URL of the organization.
-Ensure that `Credentialsource` is set to 2 in the payload and `SubjectScope` is set to 1 for environment-specific scenarios.
+Ensure that `Credentialsource` is set to `2` in the payload and `SubjectScope` is set to `1` for environment-specific scenarios.
 
-applicationid: Client ID that we copied from the managed identity we created in azure
-Managedidentityid: I just used the same Guid as the application ID.
+`applicationid`: Client ID that we copied from the managed identity we created in azure
+`Managedidentityid`: I just used the same Guid as the application ID.
 
 ``` json
 { 
-"applicationid":"<appId>",
-"managedidentityid":"<anyGuid>",
-"credentialsource":2,
-"subjectscope":1,
-"tenantid":"<tenantId>"
+  "applicationid":"<appId>",
+  "managedidentityid":"<anyGuid>",
+  "credentialsource":2,
+  "subjectscope":1,
+  "tenantid":"<tenantId>"
 }
 ```
 
@@ -168,7 +173,7 @@ Here’s the one I did:
 ![here](/assets/managed-identity-plugin/10.png)
 
 # Step 8: Associate your plugin to the managed identity
-Make a patch call to bind the plug-in assembly ID with the managed identity record that’s created through post call in step 7.
+Make a `PATCH` call to bind the plug-in assembly ID with the managed identity record that’s created through post call in step 7.
 
 Plug-in assembly:
 
@@ -195,6 +200,6 @@ I had `No matching federated identity record found for presented assertion issue
 
 ![here](/assets/managed-identity-plugin/13.png)
 
-Another one that can be challenging is “Plugin assembly must be signed with valid certificate to associate to Managed Identity”. Checking the properties of the dll helps you validate this.
+Another one that can be challenging is `“Plugin assembly must be signed with valid certificate to associate to Managed Identity”`. Checking the properties of the dll helps you validate this.
 
 ![here](/assets/managed-identity-plugin/14.png)
