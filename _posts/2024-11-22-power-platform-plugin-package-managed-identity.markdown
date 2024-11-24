@@ -5,26 +5,28 @@ date:   2024-11-22 14:48:01 +1300
 categories: Azure
 ---
 
-I’m going to cover the steps I’ve taken to get power platform plugin packages working with managed identity. Hopefully this helps someone accelerate their success without needing to face the same challenges I struggled with.
+I’m going to cover the steps I’ve taken to get power platform plugin packages working with managed identity. Hopefully, this will help someone accelerate their success without facing the same challenges I encountered.
 
-This is an extension of my [previous blog](/azure/2024/10/14/set-up-managed-identity-for-power-platform-plugins.html), so look there if you want the details of how to create the certificate locally in the way that I use it in my post pack event.
-
+This post is an extension of my [previous blog](/azure/2024/10/14/set-up-managed-identity-for-power-platform-plugins.html), so refer to it if you need details on how I create the certificate locally for use in my post-pack event.
 
 You can find example code that I’ve provided on [github here](https://github.com/Cliveo/ManagedIdentityPlugin){:target="_blank"}
 
-My main motivation was I wanted the ability to use some of the azure libraries that provide clients to communicate with azure resources. My example currently works with the `BlobServiceClient`.
+# Motivation
+My primary goal was to enable the use of Azure libraries that provide clients to communicate with Azure resources. In my example, I’m using the `BlobServiceClient`.
 
 # Step 1: Signing the package
 
-My event requires a certificate called `ManagedIdentityPlugin` to be in the users personal certificates. (Check my previous blog if you need help doing this)`
+My event requires a certificate called `ManagedIdentityPlugin` to be installed in the users personal certificates. (Check my [previous blog](/azure/2024/10/14/set-up-managed-identity-for-power-platform-plugins.html) if you need help doing this)
 
-First I found I had to download that certificate & install it in Trusted Root Certificate Authority (this is for nuget sign to work below)
+Here’s the process:
+
+I had to download that certificate & install it in Trusted Root Certificate Authority (this is for `nuget sign` to work below)
 
 Find it in Personal certificates, export, follow the wizard to the end using default options.
 
 ![here](/assets/plugin-package/1.png)
 
-Open the certificate where you save it & select install.
+Open the exported certificate and select Install.
 
 ![here](/assets/plugin-package/2.png)
 
@@ -36,7 +38,7 @@ In my example code you will find that I’ve added a post pack event
 
 ![here](/assets/plugin-package/4.png)
 
-The main differences with this are instead of using `signtool` (I found it wouldn’t sign the nupkg only the dll). I’m using `dotnet nuget sign`.
+The main differences with this are instead of using `signtool` I’m using `dotnet nuget sign` (I found it wouldn’t sign the `nupkg` only the `.dll`).
 
 `dotnet nuget sign $(ProjectDir)bin\$(ConfigurationName)\ManagedIdentityPlugin.1.0.0.nupkg --certificate-subject-name ManagedIdentityPlugin --overwrite --timestamper http://timestamp.digicert.com`
 
