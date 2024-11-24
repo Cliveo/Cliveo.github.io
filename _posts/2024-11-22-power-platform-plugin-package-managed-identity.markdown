@@ -7,7 +7,7 @@ categories: Azure
 
 I’m going to cover the steps I’ve taken to get power platform plugin packages working with managed identity. Hopefully, this will help someone accelerate their success without facing the same challenges I encountered.
 
-This post is an extension of my [previous blog](/azure/2024/10/14/set-up-managed-identity-for-power-platform-plugins.html), so refer to it if you need details on how I create the certificate locally for use in my post-pack event.
+This post is an extension of my previous blog [Set up managed identity for Power Platform Plugins](/azure/2024/10/14/set-up-managed-identity-for-power-platform-plugins.html), so refer to it if you need details on how I create the certificate locally for use in my post-pack event.
 
 You can find example code that I’ve provided on [github here](https://github.com/Cliveo/ManagedIdentityPlugin){:target="_blank"}
 
@@ -16,7 +16,7 @@ My primary goal was to enable the use of Azure libraries that provide clients to
 
 # Step 1: Signing the package
 
-My event requires a certificate called `ManagedIdentityPlugin` to be installed in the users personal certificates. (Check my [previous blog](/azure/2024/10/14/set-up-managed-identity-for-power-platform-plugins.html) if you need help doing this)
+My event requires a certificate called `ManagedIdentityPlugin` to be installed in the users personal certificates. (Check my previous blog [Set up managed identity for Power Platform Plugins](/azure/2024/10/14/set-up-managed-identity-for-power-platform-plugins.html) if you need help doing this)
 
 Here’s the process:
 
@@ -76,7 +76,22 @@ My installed packages look like this:
 I registered the package with the `Plugin Registration Tool`.
 
 # Step 5: Associate the managed identity to the plugin package
-Just as before, once you’ve registered your `package` you need to associate it to the `managed identity` in Dataverse, the main difference here is you are **not** associating it to the `plugin`. Here is an example request:
+Just as before, once you’ve registered your `package` you need to associate it to the `managed identity` in Dataverse, the main difference here is you are **not** associating it to the `plugin`. 
+
+Request
+``` 
+PATCH
+https://<orgURL>/api/data/v9.0/pluginpackages(<PackageId>)
+```
+
+Body
+```
+{
+    "managedidentityid@odata.bind": "/managedidentities(f712c637-ab8e-4f60-b740-110c10b22c1a)"
+}
+```
+
+Here is an example request:
 
 ![here](/assets/plugin-package/8.png)
 

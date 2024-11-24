@@ -8,7 +8,7 @@ categories: Azure
 In the following blog, I’m going to guide you on the set up of managed identity for Power Platform. Once we have finished you should have everything you need to be able to create a plugin that can communicate with an azure resource.
 
 # Code and blog about plugin package setup
-Since the original release of this blog I've written a follow up that provides source code and details on plugin packages, Please find it at my [next blog](/azure/2024/11/22/power-platform-plugin-package-managed-identity.html).
+Since the original release of this blog I've written a follow up that provides source code and details on plugin packages, Please find it at my blog [Power Platform Plugin Package – Managed identity](/azure/2024/11/22/power-platform-plugin-package-managed-identity.html).
 
 # Why do we want to use managed identity?
 
@@ -142,11 +142,11 @@ I just used the plugin registration tool, register the plugin and the step you w
 ![here](/assets/managed-identity-plugin/9.png)
 
 # Step 7: Create the managed identity record in dataverse
-To do this the documentation is actually quite good:
+To do this the documentation is actually quite good.
 
 To provision managed identity record in Dataverse, complete the following steps.
 
-Make a `POST` call using Insomia or any other tool of your choice. You can use a URL with payload in the following format.
+Make an `HTTP` call using Insomia or any other tool of your choice. You can use a URL with payload in the following format.
 ```
 POST
 https://<orgURL>/api/data/v9.0/managedidentities
@@ -173,15 +173,20 @@ Here’s the one I did:
 ![here](/assets/managed-identity-plugin/10.png)
 
 # Step 8: Associate your plugin to the managed identity
-Make a `PATCH` call to bind the plug-in assembly ID with the managed identity record that’s created through post call in step 7.
+Make an `HTTP` call to bind the plug-in assembly ID with the managed identity record that’s created in step 7.
 
-Plug-in assembly:
-
+Request
 ``` 
 PATCH
 https://<orgURL>/api/data/v9.0/pluginassemblies(<PluginAssemblyId>)
 ```
 
+Body
+```
+{
+      "managedidentityid@odata.bind": "/managedidentities(f712c637-ab8e-4f60-b740-110c10b22c1a)"
+}
+```
 Be sure to replace `orgURL` and `PluginAssemblyId` (the one we found in step 6).
 
 Here’s my example
