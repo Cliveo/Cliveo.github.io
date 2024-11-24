@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Power Automate – Custom Connector C# – Remove special characters"
-date:   2024-10-14 14:48:01 +1300
+date:   2024-11-17 14:48:01 +1300
 categories: Azure
 ---
 
