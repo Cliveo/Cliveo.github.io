@@ -298,3 +298,14 @@ table {
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
 }
+
+.frame {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -2rem;
+  @media screen and (min-width: $on-large) {
+    margin-bottom: 1rem;
+  }
+}
