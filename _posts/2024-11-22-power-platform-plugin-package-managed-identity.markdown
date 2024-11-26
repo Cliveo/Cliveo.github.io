@@ -22,7 +22,11 @@ Here’s the process:
 
 I had to download that certificate & install it in Trusted Root Certificate Authority (this is for `nuget sign` to work below)
 
-Find it in Personal certificates, export, follow the wizard to the end using default options.
+This is to prevent getting the error:
+
+`NU3018: UntrustedRoot: A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.`
+
+Find the certificate in Personal certificates, export, follow the wizard to the end using default options.
 
 ![here](/assets/plugin-package/1.png)
 
