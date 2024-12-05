@@ -47,7 +47,7 @@ Now getting the secret is as easy as `client.GetSecret("supersecret").Value.Valu
 
 # Step 3: Build and deploy plugin
 
-Building the package's as easy as `dotnet build --no-incremental`
+Building the package is as easy as `dotnet build --no-incremental`
 
 ![here](/assets/plugin-key-vault/4.png)
 
