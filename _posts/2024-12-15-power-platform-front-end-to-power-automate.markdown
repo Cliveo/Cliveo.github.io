@@ -82,32 +82,19 @@ namespace ManagedIdentityPlugin
 
 # Step 4: Front-end JavaScript to Call Custom API and Flow
 
-Now let's look at how to call this Custom API from JavaScript and use the token to authenticate to Power Automate:
+Now let's look at how to call this Custom API from JavaScript and use the token to authenticate to Power Automate. 
+
+Note: I decided to not to use Xrm.WebAPI as I find it overkill for this, but typically it should be used.
 
 ```javascript
 // Function to get authentication token from our custom API
-async function getFlowToken() {
-    try {
-        // Use the Dataverse Web API to call our custom API
-        const response = await Xrm.WebApi.online.execute({
-            entityType: "co_GetToken",
-            action: true
-        });
-        
-        if (response.ok) {
-            const responseJson = await response.json();
-            return {
-                token: responseJson.token,
-            };
-        } else {
-            console.error("Failed to get Flow token:", await response.text());
-            throw new Error("Failed to get Flow token");
-        }
-    } catch (error) {
-        console.error("Error calling token API:", error);
-        throw error;
-    }
-}
+const GetFlowToken = () => {
+  return new Promise((resolve) => {
+    fetch("/api/data/v9.0/co_GetToken")
+      .then((result) => result.json())
+      .then((data) => resolve(data.token))
+  });
+};
 
 // Function to call Power Automate flow with the token
 async function callSecureFlow(flowUrl, token, requestData) {
@@ -136,11 +123,11 @@ async function callSecureFlow(flowUrl, token, requestData) {
 async function CallFlow() {
     try {
         // Get token first
-        const tokenInfo = await getFlowToken();
+        const token = await GetFlowToken();
         
         // Then call the flow with the token
         const flowUrl = "";
-        const result = await callSecureFlow(flowUrl, tokenInfo.token);
+        const result = await callSecureFlow(flowUrl, token);
         
         // Use the flow response
         return result;
