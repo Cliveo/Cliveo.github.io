@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Power Platform Plugin to Power Fx Function – Synchronous PowerFx from Plugins"
+title:  "Power Platform Plugin to Power Fx Function (Preview) – Synchronous PowerFx from Plugins"
 date:   2025-05-05 10:00:00 +1300
 categories: Azure
 ---
 
-Recently, I discovered that Microsoft has de-prioritized automated low-code plug-ins in Dataverse, which prompted me to explore how to invoke Power Fx functions from Dataverse plugins. This post shares my findings and a practical approach to synchronously call Power Fx logic from plugin events like create or update.
+Recently, I discovered that Microsoft has de-prioritized automated low-code plug-ins in Dataverse, which prompted me to explore how to invoke Power Fx functions (Preview) from Dataverse plugins. This post shares my findings and a practical approach to synchronously call Power Fx logic from plugin events like create or update.
 
 > **Note:** For a comprehensive overview of Power Fx functions in Dataverse, see the [official documentation](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/functions-overview).
 
