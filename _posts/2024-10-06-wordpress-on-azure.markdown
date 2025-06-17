@@ -7,6 +7,7 @@ categories: Azure
 
 # Update
 
+
 Since writing this blog I've moved to using github pages, more details can be found [here](https://pages.github.com/){:target="_blank"}.
 
 It's very fast, simple to use, the authoring experience is great for a developer, all markdown, no drag and drop designer, and it's free!
