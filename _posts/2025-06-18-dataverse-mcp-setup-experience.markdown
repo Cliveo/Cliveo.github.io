@@ -75,7 +75,7 @@ https://make.powerapps.com/environments/.../connections/shared_commondataservice
 https://make.preview.powerautomate.com/environments/.../connections?apiName=shared_commondataserviceforapps&connectionName=...
 ```
 
-# 3. Pro Tip: Turn Up the Log Level
+# Pro Tip: Turn Up the Log Level
 
 When trying to get it to work in VS Code, something that can be quite useful is turning up the log level:
 
@@ -91,7 +91,21 @@ Select: `Trace`
 
 Now the traces are still quite hard to decipher, but I'm confident that with time they will get much better and the community will start having references to common issues and their resolutions.
 
-# 4. Usage and Exciting Possibilities
+# It works!
+
+Now that it works, it's quite amazing what you can start to get out of Dataverse, here is a very basic example where I ask `Tell me about my contact table`.
+
+![Ask about contact table](/assets/mcp-setup/Screenshot 2025-06-18 074007.png)
+
+The MCP integration automatically analyzes the table structure and provides comprehensive details:
+
+![Contact table analysis](/assets/mcp-setup/Screenshot 2025-06-18 074046.png)
+
+![Table schema details](/assets/mcp-setup/Screenshot 2025-06-18 074105.png)
+
+![Complete table overview](/assets/mcp-setup/Screenshot 2025-06-18 074142.png)
+
+# Usage and Exciting Possibilities
 
 Now I'm really excited to share all of the ways this can be used to enhance your `AI-assisted development`.
 
