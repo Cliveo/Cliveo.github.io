@@ -5,7 +5,7 @@ date:   2025-07-01 14:30:00 +1300
 categories: Azure
 ---
 
-Following up on my previous post about [setting up Dataverse MCP](/azure/2025/06/17/dataverse-mcp-setup-experience.html), I wanted to share a practical example of how powerful this integration can be for exploring and documenting your Dataverse environment.
+Following up on my previous post about [setting up Dataverse MCP](/azure/2025/06/16/dataverse-mcp-setup-experience.html), I wanted to share a practical example of how powerful this integration can be for exploring and documenting your Dataverse environment.
 
 # The Challenge: Understanding Your Environment
 
