@@ -67,7 +67,7 @@ We have the report! It has done exactly what I have asked.
 Notes produced by the agent:
 
 - All flows processed for triggers (Step 2 complete).
-- Manual trigger callback URL retrieval failed for non‑HTTP manual variants (expected – they are manual forms / button types, not raw HTTP).
+- Manual trigger callback URL retrieval failed for non‑HTTP manual variants (expected - they are manual forms / button types, not raw HTTP).
 - Only one manual HTTP trigger returned a URL (Managed Identity HTTP).
 
 ## Safety & Hygiene
