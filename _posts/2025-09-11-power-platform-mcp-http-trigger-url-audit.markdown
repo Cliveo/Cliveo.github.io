@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Power Platform MCP – Auditing HTTP / Teams Webhook Trigger URL Changes"
+title: "Power Platform MCP - Auditing HTTP / Teams Webhook Trigger URL Changes"
 date: 2025-09-11 09:00:00 +1200
 categories: Azure
 description: Using my Dataverse + Power Automate MCP server to inventory flows, inspect triggers, and capture new HTTP callback URLs ahead of Microsoft’s 2025 retirement of logic.azure.com trigger endpoints.
