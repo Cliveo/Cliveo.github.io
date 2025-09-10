@@ -78,7 +78,7 @@ Do not publish full callback URLs publicly, they contain shared access signature
 
 If you (or a reviewer) are not comfortable using an AI / MCP agent for this yet, you can achieve a similar outcome with a script-first approach:
 
-- I previously published a PowerShell example that programmatically retrieves an HTTP trigger URL for a flow: [Power Automate - HTTP trigger URL](/azure/2025/01/21/power-automate-http-url.html). It embeds a gist with the core logic.
+- I previously published a PowerShell example that programmatically retrieves an HTTP trigger URL for a flow: [Power Automate - HTTP trigger URL]({{ '/azure/2025/01/21/power-automate-http-url.html' | relative_url }}). It embeds a gist with the core logic.
 
 ## Related
 
