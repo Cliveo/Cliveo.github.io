@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Power Platform - Power Automate - HTTP trigger URL"
-date:   2025-01-19 14:48:01 +1300
+date:   2025-01-21 14:48:01 +1300
 categories: Azure
 ---
 
