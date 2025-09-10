@@ -82,7 +82,7 @@ If you (or a reviewer) are not comfortable using an AI / MCP agent for this yet,
 
 ## Related
 
-- Previous post: [Power Platform MCP – Open source Dataverse MCP server]({{ '/azure/2025/09/10/power-platform-mcp-open-source.html' | relative_url }})
+- Previous post: [Power Platform MCP – Open source Dataverse MCP server]({{ '/azure/2025/09/09/power-platform-mcp-open-source.html' | relative_url }})
 
 
 Feedback or ideas for next automation steps welcome in the repo: <https://github.com/Cliveo/Power-Platform-MCP>.
