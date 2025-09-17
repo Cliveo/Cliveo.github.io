@@ -82,8 +82,8 @@ What typically would have taken multiple manual steps:
 
 ## Related Posts
 
-- [Power Platform MCP - Auditing HTTP / Teams Webhook Trigger URL Changes]({{ '/azure/2025/09/11/power-platform-mcp-http-trigger-url-audit.html' | relative_url }})
-- [Power Platform MCP - Open source Dataverse MCP server]({{ '/azure/2025/09/10/power-platform-mcp-open-source.html' | relative_url }})
+- [Power Platform MCP - Auditing HTTP / Teams Webhook Trigger URL Changes]({{ '/azure/2025/09/10/power-platform-mcp-http-trigger-url-audit.html' | relative_url }})
+- [Power Platform MCP - Open source Dataverse MCP server]({{ '/azure/2025/09/09/power-platform-mcp-open-source.html' | relative_url }})
 
 Source code: <https://github.com/Cliveo/Power-Platform-MCP>
 
