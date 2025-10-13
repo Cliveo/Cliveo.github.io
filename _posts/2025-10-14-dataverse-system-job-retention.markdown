@@ -26,7 +26,8 @@ I've added system job retention management to my [Power Platform MCP server](htt
 **Are you using system job retention in your environments?** If so, what retention periods work for you? Have you noticed performance improvements?
 
 The feature is [documented on Microsoft Learn](https://learn.microsoft.com/en-us/power-platform/admin/cleanup-asyncoperationbase-table){:target="_blank"}.
+
 ## Related Posts
 
 - [Power Platform MCP - Open source Dataverse MCP server]({{ '/azure/2025/09/09/power-platform-mcp-open-source.html' | relative_url }})
-- [Power Platform MCP - Investigating Power Automate Flow Runs with AI]({{ '/azure/2025/09/17/power-platform-mcp-flow-run-investigation.html' | relative_url }})
+- [Power Platform MCP - Investigating Power Automate Flow Runs with AI]({{ '/azure/2025/09/16/power-platform-mcp-flow-run-investigation.html' | relative_url }})
