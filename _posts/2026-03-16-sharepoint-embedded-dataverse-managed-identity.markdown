@@ -20,7 +20,7 @@ If you need the earlier foundation first, start with these posts:
 
 [Power Platform Plugin Package – Managed identity](/azure/2024/11/22/power-platform-plugin-package-managed-identity.html)
 
-[Power Platform: Front-end Authentication to Power Automate with Custom API](/azure/2025/04/10/power-platform-front-end-to-power-automate.html)
+[Power Platform: Front-end Authentication to Power Automate with Custom API](/azure/2025/04/09/power-platform-front-end-to-power-automate.html)
 
 You can find the code on [GitHub](https://github.com/Cliveo/ManagedIdentityPlugin){:target="_blank"}
 
